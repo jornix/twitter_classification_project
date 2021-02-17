@@ -45,5 +45,11 @@ confusion_mat = confusion_matrix(test_labels, predict, normalize='true')
 print(confusion_mat)
 
 # Graph confusion matrix
-sns.heatmap(confusion_mat, annot = True)
+x_axis_labels = ["New York","London","Paris"] # labels for x-axis
+y_axis_labels = ["New York","London","Paris"] # labels for y-axis
+
+plt.figure(figsize = (10,7))
+sns.set(font_scale=1.4)#for label size
+sns.heatmap(confusion_mat, cmap = "Blues", xticklabels=x_axis_labels, yticklabels=y_axis_labels,annot = True,annot_kws={"size": 16})
+plt.title('Tweet true and predicted location')
 plt.show()
